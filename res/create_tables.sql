@@ -1,4 +1,4 @@
 CREATE TABLE IF NOT EXISTS digits (
-	number INTEGER PRIMARY KEY 
-		CHECK(number >= 0 AND number <= 999999999)
+	id INTEGER PRIMARY KEY 
+		CHECK(id >= 0 AND id <= 999999999)
 );
