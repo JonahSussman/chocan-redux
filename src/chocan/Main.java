@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.*;
+import java.util.Random;
+import java.util.regex.Pattern;
+
+import org.sqlite.Function;
 
 public class Main {
 	public static Connection connection = null;
@@ -37,44 +41,70 @@ public class Main {
 		return stmt.execute();
 	}
 	
+	static void multiSQL(String filename) throws SQLException, IOException {
+		String[] a = readSQL(filename).split(";");
+		Statement stmt = connection.createStatement();
+
+		for (String s : a) {
+			if (s.matches("\\S")) continue;
+			stmt.execute(s);
+			System.out.println(s);
+		}
+		
+	}
+	
 	public static void main(String args[]) {
-		String url = "jdbc:sqlite:" + new File("").getAbsolutePath() + "/Garbage.db";
+    String SALTCHARS = "0123456789abcdef";
+    StringBuilder salt = new StringBuilder();
+    Random rnd = new Random();
+    while (salt.length() < 18) {
+        int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+        salt.append(SALTCHARS.charAt(index));
+    }
+		String url = "jdbc:sqlite:" + new File("").getAbsolutePath() + "/" + salt.toString() + ".db";
 		
 		try {
 			connection = DriverManager.getConnection(url);
+			Function.create(connection, "REGEXP", new Function() {
+        @Override
+        protected void xFunc() throws SQLException {
+          String expression = value_text(0);
+          String value = value_text(1);
+          if (value == null)
+              value = "";
+
+          Pattern pattern = Pattern.compile(expression);
+          result(pattern.matcher(value).find() ? 1 : 0);
+        }
+	    });
+			
+			
+			multiSQL("/create_tables.sql");
+//			
+//	    ResultSet rss = connection.getMetaData().getTables(null, null, null, null);
+//	    while (rss.next()) {
+//	        System.out.println(rss.getString("TABLE_NAME"));
+//	    }
 			
 			Statement stmt = connection.createStatement();
-			stmt.execute(readSQL("/create_tables.sql"));
-			
 			try {
-				execSQL("/insert_digit.sql", "123456789");
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			}
-			
-			try {
-				execSQL("/insert_digit.sql", "-1");
+				execSQL("/insert_member.sql", 
+						"321", "Jonah", "Street", "Coty", "GA", "123456"
+				);
 			} catch (SQLException e) {
 				System.out.println(e.getMessage());
 			}
 			
 			// How are CHECKs handled?
-			ResultSet rs = stmt.executeQuery("SELECT * FROM digits;");
+//			ResultSet rs = stmt.executeQuery("SELECT * FROM members;");
+//			
+//			while (rs.next()) {
+//				System.out.print("id = " + rs.getString(1));
+//			}
 			
-			while (rs.next()) {
-				System.out.print("id = " + rs.getInt("id"));
-			}
-			
+			connection.close();
 		} catch (Exception e) {
 			System.err.println(e.getClass() + ": " + e.getMessage());
-		} finally {
-			try {
-				if (connection != null) {
-					connection.close();
-				}
-			} catch (SQLException e) {
-				System.err.println(e.getMessage());
-			}
 		}
 	}
 }

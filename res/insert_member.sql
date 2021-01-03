@@ -1,0 +1,1 @@
+INSERT INTO members(id, name, street, city, state, zip) VALUES(?, ?, ?, ?, ?, ?);
