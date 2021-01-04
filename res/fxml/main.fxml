@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane fx:controller="chocan.FXMain" xmlns:fx="chocan" alignment="center" hgap="10" vgap="10">
+
+<Button text="Launch Provider GUI" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+<Button text="Launch Manager GUI" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+<Button text="Launch Operator GUI" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+<Button text="Launch Main Accounting Procedure" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+</GridPane>
