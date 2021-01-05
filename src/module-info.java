@@ -5,7 +5,9 @@ module chocan {
 	requires javafx.graphics;
 	requires javafx.controls;
 	requires javafx.fxml;
+	requires javafx.base;
 	
 	exports chocan;
 	opens chocan to javafx.graphics;
+	opens chocan.gui to javafx.fxml;
 }

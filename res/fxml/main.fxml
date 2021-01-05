@@ -6,11 +6,22 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane fx:controller="chocan.FXMain" xmlns:fx="chocan" alignment="center" hgap="10" vgap="10">
-
-<Button text="Launch Provider GUI" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-<Button text="Launch Manager GUI" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-<Button text="Launch Operator GUI" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-<Button text="Launch Main Accounting Procedure" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-
-</GridPane>
+<VBox fx:controller="chocan.gui.MainController"
+	xmlns:fx="http://javafx.com/fxml" alignment="center" spacing="10">
+	
+	<padding>
+		<Insets top="25" right="25" bottom="25" left="25" />
+	</padding>
+	
+	<Button text="Launch Provider GUI" maxWidth="1e100" 
+		onAction="#launchProviderGUI" />
+		
+	<Button text="Launch Manager GUI" maxWidth="1e100" />
+		
+	<Button text="Launch Operator GUI" maxWidth="1e100" />
+	
+	<Separator />
+	
+	<Button text="Launch Main&#10;Accounting Procedure" maxWidth="1e100"
+		style="-fx-text-alignment: CENTER;" />
+</VBox>

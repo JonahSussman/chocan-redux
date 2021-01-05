@@ -78,3 +78,8 @@ CREATE TABLE IF NOT EXISTS bills (
 INSERT OR IGNORE INTO members(id, name, street, city, state, zip)
 VALUES
 	("123456789", "Jonah", "Apple St.", "Dodge City", "GA", "13456");
+	
+INSERT OR IGNORE INTO providers(id, name, street, city, state, zip)
+VALUES
+	("123456789", "Jonah", "Apple St.", "Dodge City", "GA", "13456");
+	
