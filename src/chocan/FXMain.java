@@ -1,19 +1,8 @@
 package chocan;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Random;
-import java.util.regex.Pattern;
-
-import org.sqlite.Function;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.layout.VBox;
 import javafx.stage.*;
 
 public class FXMain extends Application {

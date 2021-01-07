@@ -13,15 +13,23 @@
 		<Insets top="25" right="25" bottom="25" left="25" />
 	</padding>
 	
+	<Text text="Chocoholics Anonymous" 
+		style="-fx-font-size: 1.5em;" />
+	
+	<Separator />
+	
 	<Button text="Launch Provider GUI" maxWidth="1e100" 
 		onAction="#launchProviderGUI" />
 		
-	<Button text="Launch Manager GUI" maxWidth="1e100" />
+	<Button text="Launch Manager GUI" maxWidth="1e100" 
+		onAction="#launchManagerGUI" />
 		
-	<Button text="Launch Operator GUI" maxWidth="1e100" />
+	<Button text="Launch Operator GUI" maxWidth="1e100" 
+		onAction="#launchOperatorGUI" />
 	
 	<Separator />
 	
 	<Button text="Launch Main&#10;Accounting Procedure" maxWidth="1e100"
-		style="-fx-text-alignment: CENTER;" />
+		style="-fx-text-alignment: CENTER;" 
+		onAction="#mainAccountingProcedure" />
 </VBox>

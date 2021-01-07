@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:controller="chocan.gui.OperatorController"
+	xmlns:fx="http://javafx.com/fxml" alignment="center" spacing="10">
+	
+	<padding>
+		<Insets top="25" right="25" bottom="25" left="25" />
+	</padding>
+	
+	<Text text="Manager Terminal" 
+		style="-fx-font-size: 1.5em;" />
+
+	<Separator />
+	
+	<GridPane hgap="10" vgap="10">
+
+	<Button text="Add Member" maxWidth="1e100"
+		GridPane.columnIndex="0" GridPane.rowIndex="0" 
+		fx:id="addMember" onAction="#add" />
+		
+	<Button text="Update Member" maxWidth="1e100" 
+		GridPane.columnIndex="0" GridPane.rowIndex="1"
+		fx:id="updateMember" onAction="#update" />
+		
+	<Button text="Delete Member" maxWidth="1e100" 
+		GridPane.columnIndex="0" GridPane.rowIndex="2"
+		fx:id="deleteMember" onAction="#delete" />
+	
+	<Button text="Add Provider" maxWidth="1e100"
+		GridPane.columnIndex="1" GridPane.rowIndex="0"
+		fx:id="addProvider" onAction="#add" />
+		
+	<Button text="Update Provider" maxWidth="1e100" 
+		GridPane.columnIndex="1" GridPane.rowIndex="1"
+		fx:id="updateProvider" onAction="#update" />
+		
+	<Button text="Delete Provider" maxWidth="1e100" 
+		GridPane.columnIndex="1" GridPane.rowIndex="2"
+		fx:id="deleteProvider" onAction="#delete" />
+		
+	</GridPane>
+	
+</VBox>
