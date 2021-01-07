@@ -10,4 +10,5 @@ module chocan {
 	exports chocan;
 	opens chocan to javafx.graphics;
 	opens chocan.gui to javafx.fxml;
+	opens chocan.information to javafx.fxml, javafx.base;
 }

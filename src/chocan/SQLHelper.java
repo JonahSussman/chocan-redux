@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 import org.sqlite.Function;
 
 public class SQLHelper {
-	private static String filename = null;
+	private static String filename = "_tests";
 	
 	static String read(String filename) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(Main.class.getResourceAsStream(filename)));

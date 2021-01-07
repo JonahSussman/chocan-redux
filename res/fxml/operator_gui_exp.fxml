@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import chocan.information.*?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.collections.*?>
+
+<GridPane alignment="CENTER" hgap="10" vgap="10"
+    xmlns:fx="http://javafx.com/fxml"
+    fx:controller="chocan.gui.OperatorTableController">
+	<padding>
+		<Insets top="25" right="25" bottom="25" left="25" />
+	</padding>
+	
+    <Label style="-fx-font-size: 1.5em;" text="Operator GUI"                
+        GridPane.columnIndex="0" GridPane.rowIndex="0">
+    </Label>
+    
+    <TableView fx:id="tableView" GridPane.columnIndex="0" prefWidth="800"
+        GridPane.rowIndex="1" style="-fx-font-family: monospace;">
+        
+        <columns>
+        	<TableColumn text="id"><cellValueFactory>
+                <PropertyValueFactory property="id" />
+            </cellValueFactory></TableColumn>
+        	
+            <TableColumn text="name"><cellValueFactory>
+                <PropertyValueFactory property="name" />
+            </cellValueFactory></TableColumn>
+        	
+            <TableColumn text="street"><cellValueFactory>
+                <PropertyValueFactory property="street" />
+            </cellValueFactory></TableColumn>
+        	
+            <TableColumn text="city"><cellValueFactory>
+                <PropertyValueFactory property="city" />
+            </cellValueFactory></TableColumn>
+        	
+            <TableColumn text="state"><cellValueFactory>
+                <PropertyValueFactory property="state" />
+            </cellValueFactory></TableColumn>
+    		
+            <TableColumn text="zip"><cellValueFactory>
+                <PropertyValueFactory property="zip" />
+            </cellValueFactory></TableColumn>
+        </columns>
+        
+        <items>
+        	<FXCollections fx:factory="observableArrayList">
+		        <Person id="123456789" name="Jane Doe" street="Apple st." city="Paradise City" state="CA" zip="90210" />
+		        <Person id="#########" name="1234512345123451234512345" street="1234512345123451234512345" city="1234512345123451234512345" state="##" zip="#####" />
+        	</FXCollections>
+        </items>
+    </TableView>
+</GridPane>

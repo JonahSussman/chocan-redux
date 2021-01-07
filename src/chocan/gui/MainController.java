@@ -19,8 +19,8 @@ import javafx.stage.Stage;
 
 public class MainController {
 	void loadScene(String fxml) {
-		
 		Stage stage = new Stage();
+		
 		try {
 			Parent root = 
 					FXMLLoader.load(getClass().getResource(fxml));
@@ -30,6 +30,7 @@ public class MainController {
 			stage.show();
 			
 		} catch (Exception ex) {
+			ex.printStackTrace();
 			System.err.println(ex.getMessage());
 		}
 	}
@@ -81,6 +82,6 @@ public class MainController {
 	
 	@FXML
 	public void mainAccountingProcedure(Event ev) {
-		
+		loadScene("/fxml/operator_gui_exp.fxml");
 	}
 }
